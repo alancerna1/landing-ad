@@ -42,13 +42,11 @@ export class ShapeComponent implements AfterContentInit {
       p5.pixelDensity(1);
       shape = p5.createGraphics(size, size, p5.WEBGL);
       shape.setAttributes({
-        // antialias: true,
         alpha: true,
         premultipliedAlpha: true,
       });
       p5.colorMode(p5.HSB, 255);
       shape.noFill();
-      // shape.angleMode(p5.RADIANS);
       shape.colorMode(p5.HSB, 255);
     };
 
@@ -61,9 +59,9 @@ export class ShapeComponent implements AfterContentInit {
       if (p5.frameCount < 10) {
         sum += p5.frameRate();
       } else if (!taken) {
-        nr = p5.map(sum / 19, 20, 70, 13, 5);
+        nr = p5.map(sum / 9, 15, 60, 15, 3);
         taken = true;
-        console.log(nr)
+        // console.log({ nr }, sum / 9);
       }
       shape.clear(0, 0, 0, 0);
       shape.rotateY(angle);
@@ -104,4 +102,3 @@ export class ShapeComponent implements AfterContentInit {
     this.isOver = isOver;
   }
 }
-
